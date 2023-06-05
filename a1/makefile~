@@ -1,0 +1,21 @@
+
+code: a1_p1.o testStack.o testLinkedList.o a1_p4.o a1_p5.o
+	g++ a1_p1.o testStack.o testLinkedList.o a1_p4.o a1_p5.o -o code
+
+a1_p1.o: a1_p1.cpp
+	g++ -c a1_p1.cpp
+
+testStack.o: testStack.cpp
+	g++ -c testStack.cpp
+
+testLinkedList.o: testLinkedList.cpp
+	g++ -c testLinkedList.cpp
+
+a1_p4.o:a1_p4.cpp
+	g++ -c a1_p4.cpp
+
+a1_p5.o:a1_p5.cpp
+	g++ -c a1_p5.cpp
+
+clean: 
+	rm *.o code

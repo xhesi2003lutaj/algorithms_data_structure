@@ -1,0 +1,52 @@
+#include<iostream>
+#include<vector>
+#include<iterator>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    string s;
+    vector<string>v;
+    //Read strings from the keyboard 
+    do{
+        getline(cin,s);
+    //Insert these strings into the vector at the end
+       if(s=="END"){
+            break;
+       }{
+         v.push_back(s);
+       }
+       
+    }while (s!="END");
+    int i;
+
+    swap(v[2],v[5]);
+    int n=v.size();
+   
+    cout<<"Using the index operator\n";
+    int ris=v.size();
+      for(i=0;i<ris;i++){
+        if(i==n-1){
+            cout<<v[i]<<endl;
+        }else{
+            cout<<v[i]<<", ";
+
+        }
+    }
+    printf("\n");
+
+    vector<string>::iterator t;
+    
+    cout<<"Using the iterator\n";
+    for(t=v.begin(); t < v.end();t++){
+        if(t==(v.end()-1)){
+            cout<<*t<<endl;
+        }
+        else{
+             cout<<*t<<", ";
+        }
+    }
+    printf("\n");
+   
+    return 0;
+}

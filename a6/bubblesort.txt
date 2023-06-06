@@ -1,0 +1,52 @@
+a)	
+Bubblesort psudocode
+
+bubblesort(A,n)
+	bool swap;
+	for i=0 to n
+	  swap=false;
+	  forj=0 to n-i-1
+	  	if(A[j]>A[j+1])
+			swap(A[j],A[j+1])
+			swap=true;
+	 if(swap==false)
+	 	break
+
+The algorithm compares a given element of the array at index j with the next and if the second is smaller they are swaped.
+After each iteration there are n-i comparisons that take place because the elements from index n-i to n are already in sorted order.
+So in general the time this algorith takes would be n*(n-i-1);
+
+b)
+worst case
+	the algorithm would have to perform n*(n-i-1) comparisons and swaps which is the sum from n to n-(n-1)=n(n-1)/2= O(n^2).
+average case
+	if we consider the array to be half sorted the number of comparisons would be n/2(n-i-1)=O(n^2).
+best case
+	if we consider the array to be sorted the number of comparisons would be n because of the stopping condition after the first loop if there were no swaps happening.
+
+c)
+mergesort 
+	stable, the divide and conquer is implemented that divides the array in subarrays from left to mid, and from mid to right, so is done the merging and as a result if there are 
+	two equal elements in the subarrays if a[i] on the left<=a[i] on the right, the first to be put in the output array if the one from the left subarray which is also the first
+	received as an input from the initial array.
+heapsort
+	unstable, the default implementation of heapsort will not be stable because it keeps track only of the greater and smaller properties and not the order of insertion
+	for example 29 20a 20b 19 18 11 9 is a maxheap, when 29 is sorted 20a will become the max, and will also be sorted 
+	the result: 9 11 18 19 20b 20a 29
+insertionsort
+	stable, becuse the swap between the key and an element at index j occurrs only when the alement is greater than the key not when the element is =to the key, so the order of two elements in the sorted 	array is as in the input.
+bubblesort
+	stable,for the same reason as in insertionsort, the swaping will happen only if the element on the right is less than that in the left, not when they are equal.
+d)
+bubblesort
+	adaptive, becuse it performs a swap if the say i+1 element is grater than the i-th element, so if not the case the if condition is skipped and the algorithm runs faster
+mergesort
+	non adaptive, as it anyways is going to split the array into sumbarrays according to the given condition (size), and the elements in the subarrays are always compared and copi	   ed back in the array, that's why mergesort has the same time complexity for all cases.
+heapsort
+	non adaptive, despite the array being sorted it created the heap and uses the swap of arr[0] with the smallest element and calls max_heapify
+insertionsort
+	adaptive, it makes use of the sorted elements by skiping the while loop,that's why it has different time comlexities depending on the input array.
+
+2.c)
+	The two variants don't really make much difference,but when cinsidering big data bottom up heapsort is more efficient as it saves useless tests.
+

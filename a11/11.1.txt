@@ -1,0 +1,19 @@
+Sequence <3,10,2,4>
+Double hashing
+m=5
+h1(k)=k mod 5
+h2(k)=7k mod 8
+
+h(3)=3 mod 5=3
+h(10)=10 mod 5=0
+h(2)=2 mod 5=2
+h(4)=4 mod 5=4
+
+There's no need to use the second hash function, the first doesn't result in collisions.
+The hash function:
+0	10
+1
+2	2	
+3	3
+4	4
+

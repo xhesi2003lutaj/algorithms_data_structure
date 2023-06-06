@@ -1,0 +1,14 @@
+0.1 0.1 
+
+0.3 
+
+0.6 0.7 0.6 
+
+0.9
+The above is the content of each bucket in the bucketsort.cpp.
+This can be considered as a kind of average case.
+The worst case would be the onle where all the lements end up in one bucket:
+0.6,0.7,0.0.58.....n=7
+As we use std::vector to sort the buckets, it uses the introsort algorithms, which is a combination of quicksort,insertionsort, and heapsort.
+All except heapsort have worst time complexity of n^2, so if all elements end up in one bucket and moreover are already sorted or inversely sorted the time complexity of bucketsort will be O(n^2).
+

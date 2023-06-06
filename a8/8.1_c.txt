@@ -1,0 +1,18 @@
+
+int arr(arr,k,a,b)
+  	 n=arr.lenght();
+  	 int c[k+1]={0}
+  for i:in range 1 to n
+ 		c[arr[i]]++
+	for i:in range k
+		c[i]+=c[i-1]
+	if a==0:
+		return [b]
+	else:
+		return c[b]-c[a]
+
+Like countingsort this pseudocode counts the occurrence of each number in the array, and then computes the sum of two subsequent indexes of the counting array so that in every index we keep track of the elements that occurr from 0 to a.
+The time complexity is O(1) because the determination of the elements takes a simple subtraction if a!=0 or just accessing one index of the array if a==0;
+And the preproceeding time is 0(n+k), as we are allocating memory for count which has isze k, and there's a for loop of size n;
+:wq!
+

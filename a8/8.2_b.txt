@@ -1,0 +1,21 @@
+The above implementation of radixsort is using bucketsort as a stable sorting algorithm.
+Time complexity 
+	1 while loop that depends on the number of digits of the greatest nr          					d
+	3 for loops that depend on the size of the array    								3n
+	1 for loop    													10
+	1 nested for loop, may seem like n^2, but this is not the case as because of 
+	the recursive call bucketsort is called until there are created subbuckets of
+	1 element, so n is the time complexity of the for loop (id all elements are the same than d*n)       		 n
+
+	Summing up  												0(d(3n+10+n))=0(d(4n+10))=0(dn)
+
+
+In best case when all the numbers strat with a different most significant is 0(n),
+as every bucket will have only one number
+
+Space complexity
+	n buckets are created and in worst case when all numbers have the same number of 
+	digits d sunbuckets are created so time complexity is							 0(dn).
+
+
+	

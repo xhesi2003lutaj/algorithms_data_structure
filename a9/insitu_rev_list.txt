@@ -1,0 +1,14 @@
+
+Function reverse_list(Node* head){
+	Node* tenp=head;
+	if(temp==NULL){
+		return;
+	}
+	else{
+		reverse_list(temp->next);
+		cout<<temp->data;
+	}
+}
+
+The above is an insitu algorithm if we go with the most accepeted idea that recursion isn't counted to take extra stack memory.
+Using recursion we loop until the last element of the list, and than print. And becuase we are using recursion it will call for n-1(nr. of elements in the list).... until 0, the first element in the list. Because we are cslling for n-1 elements it is O(n). No extra memory for any temp variable.

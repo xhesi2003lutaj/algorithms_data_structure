@@ -1,0 +1,22 @@
+The Dijkstra Algorithm is proven not to work for negaive wighted graphs.
+The person in the problem thinks that by adding a large constant to all the edges so as to get rid of the negative edge. However this is not always the case. For instance consider the below graph:
+
+     5																					
+1------------3
+|			 |
+|8			 |-10800               Adding a large constant to the edges-->       
+|			 |
+|  			 |
+2----------- 4
+     3
+
+
+	
+     5000
+1------------3
+|			 |
+|8000		 |-9800            Dijkstra would give a shortest path from 1 to 3 of cost 5000, while the real shortest path has a cost of 1200 
+|			 |
+|  			 |
+2----------- 4
+     3000

@@ -1,0 +1,9 @@
+AVERAGE TIMES OF THE THREE QUICKSORTS
+
+	hoare_qsort			lomuto_qsort	median_of_three
+	0.068				0.005			0.050
+
+The difference on the running time of the quicksorts are not to different because the array is randomly generated and we are dealing with the average case where all the algorithms have almost the smae running time complexity.
+Hoever it is visuble that lomuto partitioning is more efficient as it does three times fewer swaps.
+But according to my observations they have no difference, and the slight difference in the running time may be due to the relative error of the device.
+

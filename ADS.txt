@@ -1,0 +1,1936 @@
+								SORING ALGORITHMS
+IN HOMEWORKS:
+-SELECTIONSORT
+void minel(int arr[],int i,int n){
+	int min=i;
+	for(int k=i+1;k<n;k++){
+		if(arr[k]<arr[min]){
+			min=k;
+		}
+	}
+	swap(arr[i],arr[min]);
+
+}
+void selectionsort(int arr[],int n){
+
+	for(int i=0;i<n;i++){
+		minel(arr,i,n);
+	}
+	for(int i=0;i<n;i++){
+		cout<<arr[i]<<endl;
+	}
+}
+-MERGESORT
+
+function mergesort(int arr[],int b,int e,int k){
+	if(e-b<k){
+		insertionsort(arr,b,e)
+		}
+	else{
+		int mid=b+e/2;
+		mergesort(arr,b,mid,k);
+		mergesort(arr,mid+1,e,k);
+		sort(arr,b,mid,e);
+	}
+function sort(int arr,int b,int mid,int e){
+	int left=mid-b;
+	int right=e-mid;
+	int *l=new int[left];
+	int *r=new int [right];
+	for(int i=0;i<left;i++){
+		l[i]=arr[i+b];
+	}
+	for(int i=0;i<right;i++){
+		r[i]=arr[mid+j+1];
+		
+	}
+	int i=j=0
+	k=b;
+	while(i<n && j<n){
+		if(l[i]<r[j]){
+			arr[k]=l[i];
+			i++;
+
+		}else {
+			if(l[i]>r[j]){
+				arr[k]=r[j];
+				j++
+			}
+
+		}
+		k++;
+	}
+	while(i<left){
+				arr[k]=l[i];
+				i++;
+				k++;
+		}
+		while(j<right){
+				arr[k]=r[j];
+				j++;
+				k++;
+		}
+}
+
+}
+-INSERTIONSORT
+
+function insertionsort(int arr[],int b,int e){
+	int i=b;
+	int j
+	while(i<=e){
+	    key=arr[i];
+		j=i-1;
+		while(j>0 && key<arr[j]){
+			arr[j+1]=arr[j]
+			j--;
+		}
+		arr[j+1]=key;
+		i++;
+	}
+
+	
+}
+-Bubblesort
+void bubblesort(int arr[],int n){
+    bool swaped;
+    for(int i=0;i<n;i++){
+        swaped=false;
+        cout<<"in first loop"<<endl;
+        for(int j=0;j<n-i-1;j++){
+            cout<<"i: "<<i<<" "<<"j: "<<j<<endl;
+             if(arr[j]>arr[j+1]){
+            swap(arr[j],arr[j+1]);
+            swaped=true;
+        }
+
+        }
+        if (swaped==false)
+            break;
+    }
+-HEAPSORT
+max-heapify(int arr[],int i,int n):
+	l=i*2+1
+	r=i*2+2
+  if(l<n && arr[l]>arr[i]):
+  	max=l
+  if(r<n && arr[r]>arr[i]):
+  	max=r
+  if(max!=i):
+    swap
+    maxheapify(arr,n,max);
+function heap:
+for(int i=n/2-1;i>=0;i--):
+	max-heapify(arr,i,n)
+for(int i=n-1;i>0;i--):
+	swap(arr[i],arr[0])
+	n-=1
+	maxheapify the rest
+
+-BUCKETSORT
+void bucketsort(int arr[],int n){
+		vector<float>x[n];
+		for(int i=0;i<n;i++){
+			int temp=n*arr[i];
+			x[temp].push_back(arr[i]);
+		}
+		dor(int i=0;i<n;i++){
+			sort(x[i].begin(),x[i].end());
+		}
+		for(int i=0;i<n;i++){
+			for(int j=0;j<x[i].size()){
+				arr[i]=b[i][j];
+			}
+		}
+	}
+-COUNTINGSORT
+void countingsort(int arr[],int n){
+		int c=returnmax(arr);
+		int *temp=new int[c];
+		int *out=new int[n];
+		memset(temp,0,sizeof(*temp));
+		for(int i=0;i<n;i++){
+			temp[arr[i]]++;
+		}
+		for(int i=1;i<c;i++){
+			temp[i]+=temp[i-1];
+		}
+		for(int i =n-1;i>=0;i--){
+			out[temp[arr[i]-1]]=arr[i];
+			temp[arr[i]]--;
+		}
+		for(int i=0;i<n;i++){
+			arr[i]=out[i];
+		}
+		delete[] temp;
+		delete[] out;
+	}
+-RADIXSORT
+ void countingsort(int arr[],int n,int po){
+		int t=returnmax(arr);
+		int*temp= new int[10];
+		int *out=new int[n];
+		memset(out,0,sizeof(*out));
+
+		for(int t=0;i<n;i++){
+			temp[(arr[i]/po)%10]++;
+		}
+		for(int i=1;i<10;i++){
+			temp[i]+=temp[i-1];
+		}
+		for(int i=10;i>=0;i--){
+			out[temp[arr[i]/po]%10]=arr[i];
+			temp[arr[i]/po)%10]--;
+		}
+		for(int i=0;i<n;i++){
+			arr[i]=out[i];
+		}
+		delete[] temp;
+		delete[] out;
+
+	}
+    void radixsort(int arr[],int n){
+		int d=retuenmax(arr);
+		int i=1;
+		for(po=i;d/po>0;po*=10){
+			countingsort(arr,n,po);
+		}
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P1
+4)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P2
+#include <iostream>
+using namespace std;
+template <class T>
+class Test {
+		private:
+				T val;
+		public:
+				static int count;
+				Test() { count++; }
+};
+template<class T>
+int Test<T>::count = 0;
+int main() {
+		Test<int> a;
+		Test<int> b;
+		Test<double> c;
+		cout << Test<int>::count << endl;
+		cout << Test<double>::count << endl;
+		return 0;
+}
+output:2
+	   1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P3
+template<class T>
+void multimples(T &sum,int n,T x){
+	sum+=1;
+	int i=1;
+	while(i<=n){
+		sum+=i*x;
+		i++;
+	}
+
+}
+int main() {
+	int sum=0;
+	multimples(sum,5,3);
+	cout<<sum<<endl;
+    
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P4
+ all of them can perform a search operation in O(nlogn)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P5 
+False
+False
+False
+False
+False
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P6
+a)
+{
+	a*n/2+a*n/2		if n even
+	a*n/2+a*n/2+a   if n is odd
+}
+
+template<class T>
+void multimples(T &prod,T x,T b){
+	if(x%2==0){
+		prod=x/2*b+x/2*b;
+	}
+	if(x%2!=0){
+		prod=(x/2*b)+(x/2)*b+(b);
+	}
+
+}
+c)
+T(n)=1T(n/2)+O(1);
+T(n)=0(logn);
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P7
+1   struct node{
+  1         int data;
+  2         node ∗ left;
+  3         node ∗ right;
+  4         node ∗ parent;
+  5 };
+  6 void replace(node ∗ ∗ root, node ∗ x, node ∗ y){
+  7         if(x == ∗ root)
+  8                 ∗ root = y;
+  9         else {
+ 10                 if(y != NULL)
+ 11                         y->parent = x->parent;
+ 12                 if(x->parent->left == x)
+ 13                         x->parent->left = y;
+ 14                 else
+ 15                         x->parent->right = y;
+ 16         }
+ 17 }
+ 18 node∗ find_min(node ∗ ∗ root){
+ 19         node ∗ min = NULL;
+ 20         node ∗ tmp = ∗ root;
+ 21         while(tmp != NULL)
+ 22                 min = tmp,
+ 23                     tmp = tmp->left;
+ 24         return min;
+ 25 }
+ 26 node∗ extract_min(node ∗ ∗ root){
+ 27         node ∗ min = find_min(root);
+ 28         if(min == NULL)
+ 29                 return NULL;
+ 30         replace(root, min, min->right);
+ 31         min->right = NULL;
+ 32         return min;
+ 33 }
+ 34 node∗ find_max(node ∗ ∗ root){
+ 35         node ∗ max = NULL;
+ 36         node ∗ tmp = ∗ root;
+ 37         while(tmp != NULL)
+ 38                 max = tmp,
+ 39                     tmp = tmp->right;
+ 40         return max;
+ 41 }
+ 42 node∗ extract_max(node ∗ ∗ root){
+ 43         node ∗ max = find_max(root);
+ 44         if(max == NULL)
+ 45                 return NULL;
+ 46         replace(root, max, max->left);
+ 47         max->left = NULL;
+ 48         return max;
+ 49 }
+ 50 void transform(node ∗ ∗ root){
+		if(root==null){
+			return;
+		}
+		node** newtree=new *int[node];
+		newtree=extractmax(root);
+		node**teemp=newtree;
+		teemp->left==extraxtmin(root);
+		teemp=teemp->left;
+		int i=0;
+		while(root){
+			i++;
+			if(i%2==0){
+				teemp->left=extractmin(root);
+				teemp->left->parent=temp;
+				teemp=teemp->left;
+
+			}
+			if(n%2!=0){
+				teemp->right=extraxtmax(tree);
+				teemp->right->parent=temp;
+				teemp=teemp->right;
+			}
+
+		}
+		root=newtree;
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P8
+ int part(int arr[],int b,int e){
+		int piv=arr[e];
+		int i=1;
+		int j=0;
+		while(i<e){
+			if(arr[i]<piv){
+				i++;
+				j++;
+			}
+			if(arr[i]>piv){
+				swap(?arr[i],arr[j]){
+					i++;
+				}
+				swap(arr[i],arr[e]);
+			}
+			return i;
+		}
+	 }
+	 void swap_with_random(int arr[],int b,iny n,int e){
+		int idx=random nr. from 0 to n;
+		swap(arr[e],arr[idx]);
+	 }
+	void randomized_quicksort(int arr[],int b,int e){
+		if(b>e){
+			return;
+		}
+        swap_with_random(arr,b,e);
+
+		int p=part(arr,b,e);
+		randomized_quicksort(int arr,b,p);
+		randomized_quicksort(arr,p+1,e);
+
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P9
+			  29B
+		19B			30B
+
+ 09R		20R	 30R		89R		///kujdes mos besh add 15 ne right subtree, compare to the root
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P10
+An algorithm that makes the greedy choice of shortest proccessing time first does not provide a globaly optimal and coorect solution. It's correctnes would work only on special circumstances, say shortest procedding time is directionaly proportional to the due time, otherwise it is not a smart choice for all possible cases.
+Same logic for smallest slack, it would work only under certain restrictions of the input, for example:
+		1	2	3	4	5	6
+tj	   			5   4
+dj				9   9
+Keeping the others the same if we arrange the tasks on smallest slack,the time delay would be 1,5 for job 3,4 respectively, while the minimum delay would requre us to arrange job 4 first and get a delay of 5 units of time for task 3.
+
+b)
+//the key is dj and the value is tj
+multisets can store elements with the same key and than store according to the valu, this greddy algorithm ensures that we always get the minimum possible delay for all tasks.
+function min_maxdelay(multimap<int,int>data,int size){
+		cout<<"To get the minimized maximum delay you should perform the tasks in the following order:\n";
+		for(for auto &i: data){
+				cout<<data.first<<" "<<data.second<<endl;
+						
+		}
+}
+//differently
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+P11
+
+BFS-visit(G,s){
+ for(all v in G.V){
+	v.color=white;
+	v.d=int_max;
+	v.p=nil;
+ }
+ s.color=gray;
+ s.d=0;
+ s.p=nil;
+ enque(Q,s);
+ while(!Q.empty()){
+   u=q.front;
+   for(all v in adj[u]){
+		if(v.color==white){
+		   v.color=gray;
+		   v.d=u.d+1;
+		   v.p=u;
+		   enque(Q,v);
+		}
+   }
+   u.color=black;
+ }
+
+}
+  1)
+  all vertices pf the graph are colored white
+  all distances are int_max;
+  u=node 0;
+  u.d=0;
+  u.p=nil;
+  u.color=gray;
+  queue{0};
+  v=deque(v0);
+  the adj list of node 0 are nodes 1 and 2;
+   1.p=0;
+   1.d=1;
+   1.color=gray;
+  0.color=black;
+   Queue{1,2};
+   
+   u=deque(Q)=1;
+   for(all adj[1]){
+   2 is visited , so 3.color=gray;
+   3.p=1;
+   3.d=2;
+   3.color=gray;
+   queue{2,3};
+   2.color=black;
+
+   u.deque(Q)=2;
+  	for(all adj[1]){
+	3 is already visited;
+   2.color=black;
+
+   u.deque(Q)=3;
+   for all vertices in adj 3{
+	  4.color=gray;
+	  4.d=3;//2+1;
+	  4.p=3;
+	queue{4};
+	3.color=black;
+
+   u.deque(Q)=4;
+   for all v in adj[4]{
+	 1 is visited, 0 is visited.
+	 5.d=u.d+1=3+1=4;
+	 5.p=4;
+	 4.color=black;
+	 queue{5};
+
+	 u.seque(q)//5;
+	 for all v in adj[5];
+	   //nothing to be done
+     5.color=black;
+   //the loop and algorithm terminates;
+   }
+   }
+   }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DFS-ON THE SAME GRAPH IN EX 11
+DFS(graph G,node s){
+	for all v in G:
+	 v.color=white;
+	 v.p=nil;
+	time=0;
+	for each s in G:
+	  if(s.color==white):
+    	  DFS-VISIT(v);
+}
+DFS-VISIT(G,v){
+	v.color=gray;
+	time+=1;
+	v.t=time;
+	for all u in adj[v]:
+	  if(u.color==white){
+	    u.p=v;
+		 DFS-VISIT(G,u);
+	  }
+	  v.color=black;
+	  time+=1;
+	  v.f=time;
+}
+   //.d is the start time, //.f is the finish time for visiting each node 
+   initially all vertices of G are coloured white
+   time is set to 0
+   parents of each vertex is nil
+
+   for all the vetexes in G:
+   as all vertexes are white the DFS-VISIT function is called with starting node 0 -> 0.d=1
+   STACK: 0
+
+   nodes 1,2 are in adjlist of 0, and as selection in this recursion doesn't follow a restriction, i'm supposing the algorithm choses 1 to explore,
+   STACK:1  1.d=2
+         0  0.d=1
+   in adjlist of 1 is three and 2, we chose to explore 2
+   STACK:2   2.d=3
+         1   1.d=2
+		 0   0.d=1
+   in adjlist of 2 is only 3, so continue:
+   STACK:3    3.d=4
+   		 2    2.d=3
+		 1    1.d=2
+		 0    0.d=1
+  IN ADJLIST of 3 is 4 , continue exploring 4:
+  STACK:4	4.d=5
+  		3   
+		2
+		1
+		0
+  in adjlist of 4 are 1 and 0 but they are already visited: gray, so continue with 5
+  STACK:5      5.d=6
+  		4
+		3
+		2
+		1
+		0
+  continue exploring 5, there is nothing left so go back, pop 5 out of the stack and mark it black   
+  5.f=7
+  STACK:4
+        3
+		2
+		1
+		0
+	at 4, the adjlist of 4 is 0,1 which are not white so nothing to explore, pop 4 out of the stack and mark it black: 
+	4.f=8
+	STACK:3
+	      2
+		  1
+		  0
+	at vertex 3, nothing in the adjlist, so go back, and pop 3 out of the stack: 
+	3.f=9
+	STACK: 2
+	       1
+		   0
+	at vectex 2, nothing to explore in the adjlist,pop 2 and mark it black
+	2.f=10
+	STACK: 1
+	       0
+
+    at vertex 1, all the elements in the adjlist are visited,black , so mark 1 black and pop it out of the stack:
+	1.f=11
+	STACK: 0
+
+	the adjlist of 0 is 1, 2 both visited, so 0 is marked black and poped out of the stack
+	0.f=12
+
+	the algorithm returns in the for loop of DFS , as DFS-VISIT for the tree with root 0 is finished.
+	Here nothing is to be done as no vertex in the graph is white, so the algorithm finishes with each vertex having respective start and finish times.
+
+
+
+
+#include<iostream>
+#include<unordered_set>
+#include<vector>
+using namespace std;
+
+template<class T>
+struct jobs{
+	T time,due;
+};
+template<class T>
+void minmax_lateness(vector<jobs<T>>&t){///cause for large vectors without & it would make a copy , which is ineficient
+	sort(t.begin(),t.end(),[](auto const &l,auto const &r){return l.due<r.due;});
+	T delay=0;
+	T pr=0;
+	int i=0;
+	while(i<t.size()){
+		delay+=t[i].time;
+		if(delay>t[i].due){
+			pr+=delay-t[i].due;
+		}
+		
+		i++;
+	}
+	int j=0;
+	while(j<t.size()){
+		
+		cout<<t[j].due<<"->"<<t[j].time<<endl;
+		
+		j++;
+	}
+	cout<<"delay "<<pr<<endl;
+}
+int main(){
+vector<jobs<int>>activities={{3,6},{2,8},{1,9},{4,9},{3,14},{2,15}};
+minmax_lateness(activities);
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUERY INORDER VISIT	
+	DFS inorder visit(Node n)
+	if n==nil then return;
+	DFS inordervisit(n->left);
+	n.operation();
+	DFS inordervisit(n->right);
+
+QUERY SEARCHING
+	DFS serch(x,k)
+	if x==nil or k==x.key
+	  return;
+	if k<x.key:
+		serch(x.left,k);
+	serch(x.right,k);
+
+TREE MINIMUM
+  function min(x)
+  while(x!=nil)
+  	x=x.left
+  retun x
+
+SUCCESSOR
+	functionsuccesor(x)
+	if(x.right!=nil)
+		return min(x.right)
+	if(x.right==nil)
+		y=x.p
+		while(y!=nil && x=y.right)
+			x=y;
+			y=y.p;
+	return y
+
+PREDECESSOR
+	function predec(x)
+		if(x.left!=nil)
+			return max(x.left)
+		if(y!=nil && x==y.left)
+			x=y
+			y=y.p
+		return y;
+		 
+INSERTION
+	function insert(T,z)
+		y=nil
+		x=T.root;
+		while(x!==nil)
+			y=x;
+			if(x.key<z.key)
+				x=x.right
+			else
+				x=x.left
+		z.p=y
+		if(y==nil)
+			z==t,root;
+		if(z.key<y.key)
+			z=y.left
+		else
+			z=y.right;
+	
+TRANSPLANT
+	funct transplant(T,u,v)
+		if(u.p==nil)
+			t.root=v
+		elseif u=u.p.left
+			v=u.p.left
+		else 
+			v=u.p.right
+		if((v!=nil)
+			v.p=u.p
+
+DELETION
+	funct delition(T,z)
+		if z.left && z.right==nil
+			z.p=nil
+		if(z.left==nil)
+			transplant(T,z,z.right)
+		elseif z.right==nil
+			transplant(T,z,z.left)
+		else
+			y=treemin(T,z.right)
+			if(y.p!=z)
+				tranplant(T,y,y.right)
+				y.right=z.right
+				y.right.p=y
+			transplant(T,y,z)
+				y.left=z.left
+				y.left.p=y
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct node {
+	int key;
+	struct node *left, *right;
+};
+
+struct node* newNode(int item)
+{
+	struct node* temp
+		= (struct node*)malloc(sizeof(struct node));
+	temp->key = item;
+	temp->left = temp->right = NULL;
+	return temp;
+}
+
+void inorder(struct node* root)
+{
+	if (root != NULL) {
+		inorder(root->left);
+		cout << root->key <<" ";
+		inorder(root->right);
+	}
+}
+
+struct node* insert(struct node* node, int key)
+{
+	if (node == NULL)
+		return newNode(key);
+
+	if (key < node->key)
+		node->left = insert(node->left, key);
+	else
+		node->right = insert(node->right, key);
+
+	return node;
+}
+
+struct node* minValueNode(struct node* node)
+{
+	struct node* current = node;
+
+	while (current && current->left != NULL)
+		current = current->left;
+
+	return current;
+}
+
+struct node* deleteNode(struct node* root, int key)
+{
+	if (root == NULL)
+		return root;
+
+	if (key < root->key)
+		root->left = deleteNode(root->left, key);
+
+	else if (key > root->key)
+		root->right = deleteNode(root->right, key);
+
+	else {
+		if (root->left == NULL and root->right == NULL)
+			return NULL;
+
+		else if (root->left == NULL) {
+			struct node* temp = root->right;
+			free(root);
+			return temp;
+		}
+		else if (root->right == NULL) {
+			struct node* temp = root->left;
+			free(root);
+			return temp;
+		}
+
+		struct node* temp = minValueNode(root->right);
+
+		root->key = temp->key;
+
+		root->right = deleteNode(root->right, temp->key);
+	}
+	return root;
+}
+
+int main()
+{
+	struct node* root = NULL;
+	root = insert(root, 50);
+	root = insert(root, 30);
+	root = insert(root, 20);
+	root = insert(root, 40);
+	root = insert(root, 70);
+	root = insert(root, 60);
+	root = insert(root, 80);
+
+	cout << "Inorder traversal of the given tree \n";
+	inorder(root);
+
+	cout << "\nDelete 20\n";
+	root = deleteNode(root, 20);
+	cout << "Inorder traversal of the modified tree \n";
+	inorder(root);
+
+	cout << "\nDelete 30\n";
+	root = deleteNode(root, 30);
+	cout << "Inorder traversal of the modified tree \n";
+	inorder(root);
+
+	cout << "\nDelete 50\n";
+	root = deleteNode(root, 50);
+	cout << "Inorder traversal of the modified tree \n";
+	inorder(root);
+
+	return 0;
+}
+   		--------RBT---------
+ROTATION
+	function leftrot(T,x)
+	  y=x.right
+	  x.right=y.left
+	  if(y.left!=t.nil)
+	  	y.left.p=x
+	  y.p=x.p
+	  if x.p==nil
+	    y=t.root
+	  elseif x==x.p.left
+	  	y=x.p.left
+	  else y=x.p.right
+	  y.left=x
+	  x.p=y
+
+ROTATION O(1)
+	func rightrot(T,x)
+		x=y.left
+		y.left=x.right
+		if(x.r.p!=nil)
+			x.r.p=y
+		if(y,p==nil){
+			x=t.root
+		elif(y=y.p.r)
+			y.p.r=x
+		else
+			y,p.l=x
+		x.right=y
+		y.p=x
+	
+INSERTION
+	func insert(T,z)
+		y=nil;
+		x=t.root
+		while(x!=nil)
+			y=x
+			if(z.key<x.key)
+				x=x.left
+			else
+				x=x.right
+		z.p=y
+		if(y==nil)
+			t.root=z
+		elif(z.key<y.key)
+			z=y.left
+		else z=y.right
+		z.left=z.right=t.nil
+		z.color=red
+		insert-fixup(t,z)
+
+RB-insert fixup(T,z)
+	while k.p.color==red
+		if(k==k.p.right)
+			u=k.p.left
+			if u.color==red
+				u.color=bleck
+				k.p.color=black
+				k.p.p.color=red
+				k=k.p.p
+			else
+				if k=k.p.left
+					k=k.p
+					rightrot(T,k)
+				k.p.color=0
+				k.p.p.color=red
+				leftrot(k.p.p)
+		else
+			u=k.p.p.right
+			if u.color==red
+				u.color=black
+				k.p.color=black
+				k.p.p.color=red
+				k=k.p.p
+			else
+			  if(k=k.p.right)
+			  	k=k.p
+				leftrot(T,k)
+			  k.p.color=black
+			  k.p.p.color=red
+			  rightror(T,k.p.p)
+	  if(k==root)
+	  	break
+  
+  root.color=black
+
+
+
+//circular linked list
+class Node{
+	public:
+	int data;
+	Node* next;
+
+};
+Node* pushbeg(Node *head,int data){
+	Node *newnode=new Node;
+	newnode->data=data;
+	newnode->next=head;
+	if(head!=NULL){
+		
+	
+		Node *temp=head;
+		
+		while(temp->next!=head){
+			temp=temp->next;
+		}
+		temp->next=newnode;
+		head=newnode;
+		return head;
+		}
+	else{
+        newnode->next=newnode;
+		head=newnode;
+		return head;
+	}
+}
+void printlist(Node *head){
+
+	Node *temp=head;
+	if(head==NULL){
+		return;
+	}
+	if(head!=NULL){
+		do{
+			cout<<temp->data<<" ";
+			temp=temp->next;
+		}while(temp!=head);
+		
+		//printlist(;
+
+	}
+}
+int main()
+{
+	Node *t=NULL;
+	t=pushbeg(t,1);
+	t=pushbeg(t,2);
+	t=pushbeg(t,3);
+	t=pushbeg(t,4);
+	t=pushbeg(t,5);
+	printlist(t);
+
+
+}		 sets.cpp
+ 		 class compareseverse{
+			public:
+			bool operator()(const in&v,const int&y){
+			return(v<y);
+			}
+
+		 }
+		 set<int,comparereverse>xl;
+		 than print or whatever
+		or		set_functor.cpp
+		 bool funcomp(int r,int l){return r<l;}
+		 .
+		 .
+		 .
+		int main(){
+		bool(*fun_cp)(int,int)=funcomp;
+		set<int,bool(*)(int,int)>x (fun_pt);
+		}
+///--extra memory in hash tables meaning--\\\
+When we talk about hash tables, we usually mean a data structure that uses an array and a hash function to store and retrieve data efficiently. However, to achieve this efficiency, hash tables require some extra memory compared to simple arrays or linked lists.
+
+The extra memory required by hash tables comes from the fact that we need to store both the keys and the values for each item in the table. In addition, we need to allocate space for the array and the linked lists that make up the table itself. Depending on the size of the table and the number of items being stored, this extra memory can be significant.
+
+Furthermore, to handle collisions (i.e., cases where multiple items hash to the same index in the array), hash tables usually use some form of chaining, where each element in the array is a pointer to a linked list of items that hash to that index. This means that we also need to allocate memory for the linked lists and the pointers that link them together.
+
+Overall, the extra memory required by hash tables is usually worth it for the increased efficiency they provide in terms of insertion, deletion, and lookup times. However, it's important to be aware of the memory requirements when designing and using hash tables, and to make sure that the table size is appropriate for the number of items being stored to avoid wasting memory or running out of space.
+
+------------An algorithm is a sequence of computational steps which
+transforms a set of values (input) to another set of values
+(desired output
+
+--------Data structure 
+is a way to organize data in oreder to facilitate access and modification
+
+		INSERTION SORT
+
+
+
+
+		SORTINGS ASKED IN HOMEWORK
+1-SELECTIONSORT 3
+2-MERGESORT		4
+2-FIBONACCI BOTTOM UP,NAIVE RECURSIVE,CLOSED FORM,MATRIX REPRESENTATION 5
+3-DIVIDE AND CONQUER FOR MULTIPLICATION	5
+4-BUBBLE SORT, ADAPTIVE, STABLE	6
+5-HEAPSORT ,BOTTOM UP HEAPSORT	6
+6-QUICKSORTR WITH3 PARTITION VERSIONS	7
+7-QUICKSORT WITH TWO PIVOTS,3 SUBSEQUENCES	7
+8-RANDOMIZED QUICKSORT	7
+9-COUNTINGSORT, BUCKETSORT, SORTING WORS IN LINEAR TIME ALPHABETICALLY	8
+10-RADIXSORT, HOLLERITH'S ORIGINAL VERSION	8
+11-STACK BACKED UP BY LINKED LIST	9
+12-QUEUE BACKED UP BY THE PREVIOUS, 2 STACKS	9
+13-REVERSE A LINKED LIST IN LINEAR TIME,INSITU ALGORITHM	9
+14-CONVERT A BST TO A SORTED LINKED LIST	9
+15-CONVERT A LINKED LIST TO A BST	9
+
+		SORTING NOT ASKED IN THE HOMEWORK
+1-INSERTIONSORT
+
+functio insertionsort(arr,n){
+	for j=1 to n:
+		int key=arr[j];
+		i=j-1;
+		while(i>0 and arr[i]>key){
+			arr[i+1]=arr[i];
+			i-=1;
+		}
+		arr[i+1]=key;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<iostream>
+using namespace std;
+
+int power(int n,int m){
+	if(m==0){
+	return 1;
+	}
+
+	int recursive=power(n,m/2);
+
+	if(m%2==0){
+		return recursive*recursive;
+	}
+	else{
+	return recursive*recursive*n;
+	}
+}
+
+int main(){
+  cout<<power(2,3);
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Binary Exponentiation
+// Part of OpenGenus
+class opengenus 
+{
+    // N^M
+    static int power( int N, int M)
+    {
+        int power = N, sum = 1;
+        while(M > 0)
+        {
+            if((M & 1) == 1)
+            {
+                sum *= power;
+            }
+            power = power * power;
+            M = M >> 1;
+        }
+        return sum;
+    }
+	public static void main (String[] args) 
+	{
+		int N = 5, M = 13;
+		System.out.println(power(N, M));
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+int maxcontigousubarray(int arr[],int n){
+    int sofar=INT16_MIN,endhere=0;
+    int start=0,end=0;
+    for(int i=0;i<n;i++){
+        endhere+=arr[i];
+        if(sofar<endhere){
+            sofar=endhere;
+            end=i;
+        }
+        if(endhere<0){
+            endhere=0;
+            start=i+1;
+        }
+    }
+    cout<<"start "<<start<<endl;
+    cout<<"end "<<end<<endl;
+    return sofar;
+}
+
+int main(){
+    int arr[]={-3,9,4,32,-12,-4};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    cout<<maxcontigousubarray(arr,n)<<endl;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <climits>
+#include <iostream>
+
+using namespace std;
+
+int maxSubArraySum(int arr[], int n)
+{
+	// Base case: when there is only one element in the
+	// array
+	if (n == 1) {
+		return arr[0];
+	}
+	// Recursive case: divide the problem into smaller
+	// sub-problems
+	int m = n / 2;
+	// Find the maximum subarray sum in the left half
+	int left_max = maxSubArraySum(arr, m);
+	// Find the maximum subarray sum in the right half
+	int right_max = maxSubArraySum(arr + m, n - m);
+	// Find the maximum subarray sum that crosses the middle
+	// element
+	int left_sum = INT_MIN, right_sum = INT_MIN, sum = 0;
+	for (int i = m; i < n; i++) {
+		sum += arr[i];
+		right_sum = max(right_sum, sum);
+	}
+	sum = 0;
+	for (int i = m - 1; i >= 0; i--) {
+		sum += arr[i];
+		left_sum = max(left_sum, sum);
+	}
+	int cross_max = left_sum + right_sum;
+	// Return the maximum of the three subarray sums
+	return max(cross_max, max(left_max, right_max));
+}
+
+int main()
+{
+	int arr[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	int max_sum = maxSubArraySum(arr, n);
+	cout << "Maximum contiguous sum is " << max_sum << endl;
+	return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Summary time complexity of algorithms		Best	 Avg	  Worst
+
+Comparison sorts
+Insertion Sort 								O(n)	 O(n^2)	  O(n^2)
+Merge Sort									O(nlogn) O(nlogn) O(nlogn)
+Quicksort									O(nlogn) O(nlogn) O(n^2)
+Heapsort									O(nlogn)   -||-    -||-
+Decision Tree								worst case does not get better than O(nlogn)
+
+Linear time sorts
+Counting sort							   O(n+k)------->n-->numbers,k--->range of numbers
+Radix sort   							   O(d*(n+b))---->b-base(decimal),d---->digits,n---->numbers
+Bucket Sort
+
+Searching problem
+Linear search     						 	O(1)			   O(n)
+Binary search								O(1)			   O(nlogn)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Structure is a way to store and organize data to facilitate access and modifictaion.
+
+Two categories of operations:
+▶ Queries return the information of a stored object.
+▶ Modify operations alter the set.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+													GREEDY
+	MAXIMIM ACTIVITIES
+#include<iostream>
+#include<unordered_set>
+#include<vector>
+using namespace std;
+
+struct Pair{
+	int start,finish;
+};
+void maxactivities(vector<Pair>a){
+	int k=0;
+	unordered_set<int>res;
+	if(a.size()>0){
+		res.insert(0);
+	}
+	sort(a.begin(),a.end(),[]( auto const &l,auto const &r){return l.finish<r.finish;});
+
+	for(int i=1;i<a.size();i++){
+		if(a[i].start>=a[k].finish){
+			res.insert(i);
+			k=i;
+		}
+	}
+
+	for(auto i:a){
+		cout<<a[i].start<<" "<<a[i].finish<<endl;
+	}
+
+
+}
+int main(){
+vector<Pair>activities={{1,4},{3,5},{0,6},{5,7},{3,8},{5,9},{6,10},{8,11},{8,12},{2,13},{12,14}};
+maxactivities(activities);
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+											RETURN THE SECOND SMALLER ELMENT IN THE SORTED ARRAY
+#include<iostream>
+using namespace std;
+int findsecondmin(int arr[], int l, int r) {
+    int x = arr[0]; // initialize x to the second element
+    if (l <= r) {
+        int mid = l + (r - l) / 2;
+       
+        if (arr[mid] > x) { // change the comparison operator
+            return findsecondmin(arr, l, mid - 1);
+        } else {
+            for (int i = mid; i < 8; i++) {
+                if (arr[i] > x) {
+                    return arr[i];
+                    break;
+                }
+            }
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {1, 1, 2, 3, 4, 5, 6, 7, 8};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << findsecondmin(arr, 0, n - 1);
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+struct rod{
+	int pieces,price;
+};
+void find_max+profit(vector<rod>b){
+	sort(b.begin(),b.end(),[](auto const&r,auto const&l){return r.price>l.price;});
+	int maxprof=INT_MIN;
+	for(int i=0;i<b.size();i++){
+		if(n>b.size()){
+			if(n%i==0 && n%i>maxprof){
+				maxprof=n%i;
+			}
+		}
+		else if(n<b.size){
+			for(int j=b.pieces;j>0;j--){
+				for(int z=b.pieces-1;z>0;z--){
+					if((b[j].price+b[z].price)>)
+				}
+			}
+		}
+		else if(n>b.size()&& maxprofit==INT_MIN){
+			
+		}
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+														CUT-ROD
+CUT-ROD(p,n)
+ if n==0
+   return 0
+   int q=int_min;
+  for i=1 to n
+	q= max(q,p[i]+cut-rod(p,n-1));
+return q;
+			MEMORIZED VERSION
+let r[n];
+r[0]=0;
+for(int i=0;i<n;i++){
+	q=int_min;
+	for(int j=1;j<i;j++){
+		q=max(q,p[j]+r[i-1]);
+	r[i=q];
+return r[n];
+	}
+								EXTENDED-BOTTOM-UP-CUT-ROD(p,n)
+	let r[0..n] and s[0..n] be new arrays
+	r[0]=0
+	for(j=1 to n)
+		q=int_min
+		for(i=1 to j)
+		`	if(q<p[i]+r[j-1])
+				q=[i]+r[j-1]
+				s[j]=i
+		r[j]=q
+	return r and s
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								KNAPSACK PROBLEM
+
+
+								int kanpsack(int v[],int w,int n,int W){
+										if(n==0 || W==0){
+										    return 0
+										if(w[n]>W){
+											return(v,w,n-1,W)
+										else:
+											return max(v[n-1]+knapsack(v,w,n-1,W-w[n-1]),knapsack(v,w,n-1,W))
+							-
+							}
+for(int i=0;i<W;i++){
+	v[0][i]=0;
+}
+for(i to n):
+	v[i][0]=0;
+for(i to n )
+	for(j to w)
+		if(w[j]>W){
+			v[i][j]=v[i-1][j]
+		else:
+			if(v[i-1][j]>bi+v[i-1][w-wi])
+				v[i][j]=v[i-1][j]
+			else:
+				v[i[j]]=bi+v[i-1][w-wi]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ i=n,k=w;
+ while(i>0 and k>0){
+	if(V[i,k]!=V[i-1,k]){
+		add item in  the knapsack
+		i-=1;
+		k-=wi;
+	}else{
+		i-=1;
+	}
+ }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				LONGEST COMMON SUBSEQUENCE ELEMENTS DON'T HAVE TO BE IN CONSEQUITIVE ORDER the one in the class
+#include<iostream>
+using namespace std;
+
+
+int longestcommonsub(string X,string L,int x,int l){
+    if(x==0 || l==0){
+        return 0;
+    }else{
+        if(X[x-1]==L[l-1]){
+            return longestcommonsub(X,L,x-1,l-1)+1;
+        }
+        return max(longestcommonsub(X,L,x-1,l),longestcommonsub(X,L,x,l-1));
+    }
+    
+    }
+int main(){
+    string X="ABCBDAB", Y = "BDCABA";
+    cout<<longestcommonsub(X,Y,X.length(),Y.length())<<endl;
+}
+												-------		----		---------	--------
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int max(int a, int b, int c) {
+    return max(max(a, b), c);
+}
+
+// Function to find the length of the longest common subsequence of
+// sequences X[0…m-1], Y[0…n-1], and Z[0…o-1]
+int LCSLength(string X, string Y, string Z, int m, int n, int o)
+{
+    if (m == 0 || n == 0 || o == 0) {
+        return 0;
+    }
+
+    if (X[m - 1] == Y[n - 1] && Y[n - 1] == Z[o - 1]) {
+        return LCSLength(X, Y, Z, m - 1, n - 1, o - 1) + 1;
+    }
+
+    return max(LCSLength(X, Y, Z, m - 1, n, o),
+                LCSLength(X, Y, Z, m, n - 1, o),
+                LCSLength(X, Y, Z, m, n, o - 1));
+}
+
+int main()
+{
+    string X = "ABCBDAB", Y = "BDCABA", Z = "BADACB";
+
+    cout << "The length of the LCS is " <<
+            LCSLength(X, Y, Z, X.length(), Y.length(), Z.length());
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							LONGEST COMMON SUBSTRING
+#include<iostream>
+#include<string>
+using namespace std;
+string maxsubstring(string X,string L,int x,int l){
+
+    int loopup[x+1][l+1];
+    memset(loopup, 0, sizeof(loopup));
+    int max=0;
+    int end=x;
+    for(int i=1;i<=x;i++){
+        for(int j=1;j<=l;j++){
+            if(X[i-1]==L[j-1]){
+            loopup[i][j]=loopup[i-1][j-1]+1;
+                
+                if(max<loopup[i][j]){
+                    max=loopup[i][j];
+                    end=i;
+                }
+            }
+
+        }
+    }
+    return X.substr(end-max,max);
+
+}
+
+int main(){
+string X = "ABC", Y = "BABA";
+    int m = X.length(), n = Y.length();
+ 
+   
+    cout << "The longest common substring is " << maxsubstring(X, Y, m, n);
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									CLIMBING STAIRS
+int fib(int n)
+	if(n<=1)
+		return n;
+	return fib(n-1)+fib(n-2);
+int clibingstairs(int n)
+	return fib(n+1);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									NUMBER OF WAYS A PERSON CAN REACH THE I-TH STAIR GIVEN A MAX OF STEPS HE CAN PERFORM
+findstairs(int n+1,int m){
+	if(n<=1){
+	 return n;
+	}
+	if(m==1){
+	 return n;
+	}
+	for(int i=0;i<n;i++){
+	res+=findstairs(n-i,m);
+return res;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+											HOUSE ROBBER
+int maxrobbery(int arr[],int n)
+	int val1=arr[0];
+	if(n==1)
+		return val1;
+	int val2=max(arr[1],val1);
+	if(n==2)
+		return val2
+	for(int i=2;i<=n;i++){
+		int max_res+=max(val1+arr[i],val2)
+		val1=val2
+		val2=max_res
+	}
+    return max_res;
+
+BOTTOM UP APPROACH
+int maxAmount(int* arr, int n)
+{
+	if (n == 0)
+		return 0;
+
+	if (n == 1)
+		return arr[1];
+
+	int v2 = max(arr[0], arr[1]);
+	if (n == 2)
+		return v2;
+	int dp[n];
+	memset(dp,0,sizeof(dp));
+	dp[0]=arr[0];
+	dp[1]=v2;
+	for(int i=2;i<n;i++){
+		dp[i]=max(dp[i-2]+arr[i],dp[i-1]);
+	}
+	return dp[n-1];
+}
+int main()
+{
+	int arr[] = { 5, 10, 30, 5, 11, 7 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "Maximum loot possible : " << maxAmount(arr, n);
+	return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+for(int j=2;i<=n;j*=2){
+	do something
+}
+time complexity is O(logn)
+for n=16	2,4,8,16   which is logn
+
+
+int a = 0, i = N;
+while (i > 0) {
+    a += i;
+    i /= 2;
+}
+	O(logn)
+
+for(int i=0;i<n;i++)
+	i*=k;
+ O(log base k of n)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				DAC TO FIND MAX_EL IN AN ARRAY
+int maxel(int arr[],int idx,int n)
+	if(n==1){
+		return arr[idx];
+	if(n-1>=2)
+		if(arr[idx]>arr[idx+1])
+			return arr[idx]
+		reyurn arr[idx+1]
+
+  int max=maxel(arr,idx+1,n)
+  if(max>arr[idx])
+  	return max
+  return arr[idx]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+racecar															LONGEST PALINDROMIC SUBSTRING
+--ATTENZIONE  WORKS FOR ODD LENTH PALIDROME
+string palindrome(string s)
+vector<string>A
+	int i=1;
+	int j=2;
+	while(i<s.lenght)
+		if(s[i-1]==s[j]&& s.length()==3)
+			A.insert(s.substr(i-1,j))
+		else if(s[i-1!=s[j]])
+		     i++;
+			 j++;
+		  while(i>0 && j<s.lenth() && s[i-1]==s[j])
+		  		i--;
+				j++;
+		  A.insert(s.substr(i,j))
+	max plindrome=max_string(A)
+--ATTENZIONE   THIS IS FOR EVEN LENGTH PALINDROME
+abaab
+allocate memory for a 2n+1 array and fill the odd entries with a special character sentinel
+$a$b$a$a$b$
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+															LPSUBSEQ
+int palindrome(string a,int b,int e){
+	if(x==0 || y==0){
+		retun 0;
+	}
+	if(x==y==1){
+		return 1;
+	}
+	if(x==y)
+		return palindrome(a,b+1,e-1)+2;
+	if(x!=y){
+		//max value you get by removing the first or last nonmetching character
+		return max(palindrome(a,b+1,e),palindrome(a,b,e-1))
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																BIONIC EUCLEDIAN-DISTANCE 
+const int mxN = 1005;
+
+struct Coordinates {
+	double x, y;
+} a[mxN];
+
+float dp[mxN][mxN];
+
+float distance(int i, int j)
+{
+	// Return the distance
+	return sqrt(
+	(a[i].x - a[j].x) * (a[i].x - a[j].x)
+	+ (a[i].y - a[j].y) * (a[i].y - a[j].y));
+}
+
+// Utility recursive function to find
+// the bitonic tour distance
+float findTourDistance(int i, int j)
+{
+	// Memoization
+	if (dp[i][j] > 0)
+		return dp[i][j];
+
+	// Update dp[i][j]
+	dp[i][j] = min(
+	findTourDistance(i + 1, j) + distance(i, i + 1),
+	findTourDistance(i + 1, i) + distance(j, i + 1));
+
+	return dp[i][j];
+}
+
+// Function to find the
+// bitonic tour distance
+void bitonicTSP(int N)
+{
+	// Initialize the dp array
+	memset(dp, 0, sizeof(dp));
+
+	// Base Case
+	for (int j = 1; j < N - 1; j++)
+		dp[N - 1][j] = distance(N - 1, N)
+			+ distance(j, N);
+
+	// Print the answer
+	printf("%.2f\n", findTourDistance(1, 1));
+}
+
+// Driver Code
+int main()
+{
+	// Given Input
+	int N = 3;
+	a[1].x = 1, a[1].y = 1;
+	a[2].x = 2, a[2].y = 3;
+	a[3].x = 3, a[3].y = 1;
+
+	// Function Call
+	bitonicTSP(N);
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						PLANNING A COMPANY PARTY
+function maxconv(node)
+	if it is a leaf:
+		return node_conv,0
+	else:
+        in included=child_conv
+		 int excluded=0;
+	 for(child in node.children)
+		 child_incl,child_excl=maxconv(child)
+		 included+=echild_excl
+		 excluded+=max(child_incl,child_excl)
+	return(included,excluded)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							REMOVIN PIXELS FROM A FRAME
+M[m][n];
+
+for(i=0 to m)
+	for(j=0 to n)
+		M[i][j]=d[i][j]
+for(i=0 to m)
+	for(j=0 to n)
+        M[i][j]=d[i][j]+min(M[i-1][j-1],M[i-1][j],M[i-1][j+1])
+		
+return M[m][n];
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------f
+							BFS				0(|V|+|E|)
+
+for each vertex u in G.V-s:
+	u.color=white;
+	u.parent=nill;
+	u.d=int_min;
+s.color=gray;
+s.parent=nil;
+s.d=0;
+enqueue(Q,s)
+while(!Q.empty()):
+	u=dequeue(Q);
+	for all v part of adjlist.u:
+		if v.color==white:
+			v.color=gray
+			v.paretnt=u;
+			v.d=u.d+1
+			enqueue(v)
+		u.color=black
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+					DFS 		each edge is proccesed once so time complexity is 0(|V|+|E|)
+DFS(G)
+  for each vertex u in G.V:
+  	u.color=white;
+	u.parent=nill:
+ for each vertex u in G.V:
+ 	if(u.color==white):
+		DFS-visit(G,u)
+DFS-visit(G,u):
+	time+=1;
+	u.d=time
+	u.color=gray
+   for(each vectex v in adj[u]){\
+   		if(v.color==white):
+		    v.p=u
+			DFS-visit(G,v)
+   u.color=black;
+   time+=1;
+   u.f=time;
+	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+												COIN CHANGE
+int coinchange(int coins[],int n;int sum):
+	int res[sum+1][n];
+	for(i=0 to n):
+		res[0][i]=0;
+	
+	for(i=1 to sum):
+		for(j=0 to n):
+			if(i>=coins[j]):
+				x=res[i-coins[j][j]
+			else:
+			x=0;
+			if(j>=1):
+				y=res[i][j-1]
+			else:
+			y=0;
+		  table[i][j]=x+y;
+	return res[sum][n-1];
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									HIGHEST STACK OF BOXES
+given a number of boxes of height h, length l, and width w ,find the maximum heught that can be gained by arranging the boxes
+	function boxes(struct boxes,int n):
+		sort(boxes,width);
+		set<boxes>s;
+        let the map A be the map that consider all the cases with the acutual box as the base( initialized to the height of the current box)
+		for int i to n:
+		   box=boxes[i];
+		   for j in renge i:
+		       if(canbestacked):
+				   A.insert(box[j])
+				   heights[box]=box[j]+max(height[box] in A)
+		   return max(heights.values()
+
+	bool canbestacked(boxes[j],box):
+		return boxes[j].l<box.l && boxes[j].w<b.w
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									MAXIMUM SUM INCERASING SUBSEQUENCE
+
+int max_increasing_sub(int arr[],int n){
+	int *tb=new int[n];
+	int elemts[n];
+	for(int i=0;i<n;i++)
+		el[i]=i;
+	copy all the elemnts of arr to tb
+	int i=1;
+	int j=0;
+	while(i<n){
+		if(arr[j]<arr[i])
+		  table[i]=max(table[i],table[j]+arr[i]);
+		  elems[i]=j if table[j]+arr[i]>table[i];
+		  unchanged otherwise;
+		if(arr[j]>arr[i]):
+		  j++;
+		if(j==i){
+		  i++;
+		  j=0;
+		}
+
+	}
+	//to get the actual elements
+	//let s be the index where max_increaing _sum is located in tb
+	vector<int>out;
+	repeat the following until index 0 of arr or el is reached:
+	out.push_back(arr[s]);
+	out.insert(arr[el[s]]);
+	out.insert(arr[el[el[s]]]);
+	
+	return max element of tb;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+					PROVIMI   12
+-2 problems conected to stl and templates, one choice, 1 you have to write c++ code ,create container,put data in it, produce the result to another container and print data using iterator, vector,list,map,multimap,set multiset
+-like p5	2 quetsions related to time complexity, pick one or multiple , pay attention to the formulation answer/ answers means many correct answers, some may be simmilar
+pay attention to the word before and after , sentences related to operation in data structure complexity, bst true false,
+computing recusive formula with subpoints
+-sorting comparison sort mergesort,insertionsort, explain , give input that behaves in a specific  manner, how many timws the division will have ,recursivity, reproduce pseudocode, another from non comparison sprting lagorithms, stable,insitu, 3 other questions are related to data struc, persormin search in a vector has this complexity, push is an operation of a queue, comine oper with data structure and say true or false, gives a data structure and say how do add or remove in that in pseudocode, redblack tree will be build sa red black tree, or it is given and she asks if it is a red black tree checking the properties, binar search tree(bild or odify or write psedocode for an operation dete with bunch of cases but she will ask just one 3a,b,c
+one of the sorting is going to include devide and conquer
+-dynamic or greedy, could be similar to what we discussed ,recusive formula should be similar?
+-graph pseudocode, or example related to the pseudocode
+-hash table related, chining, probimg ,open adressing a function and you do the computations whwre the elements will be placed how linear, quadratic, double hashing, how to work with modulo
+-the prototipe of set union, inetrsection
+-how to put elemnts the key words
+-for the time complex q ->know the def of omega O, theta, apply recursion tree, master
+-sorting which involves divide and conquer.
+-run the pseudocode in an exmp,le graph
+-complexities for classic operation on classic data structure.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+										BUY AND SELL STOCK
+find the days when you have to buy and sell stock given an array:
+arr		100 180 260 310 40 535 695
+		 0   1   2   3   4  5   6
+
+find pairs of local minima nad local maxima ,there's the greatest profit
+struct stock{
+	int buy,sell;
+};
+void findpairs(int arr[],int n){
+	stock data[n/2-1];
+	int count=0;
+	int i=0;
+	
+	while(count<n){
+	//local minima
+	while(i<n && arr[i+1]<arr[i])
+	   i++;
+    if(i==n-1)
+	 break;
+
+    data[count].buy=i++;
+
+    //local max
+    while(i<n && arr[i+1]>arr[i])
+	    i++;
+    if(i==n-1)
+	 break;
+
+    data[count].sell=i--;
+	count++;
+
+}
+	if(count==0){
+			cout<<"no profit possible<<endl;
+
+     for(int i=0;i<count;i++){
+		cout<<"best day to buy"<<data[i].buy<<"to sell"<<data[i].sell<<endl;
+	}
+		
+
+	 }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						GIVEN K TRANSACTIONS FIND THE MAXIMUM PROFIT YOU CAN MAKE BY DOING A TRANSACTION IN ONE OF THE DAYS WITH GIVEN PROFIT, buy sell
+
+day prices      0   1   2   3   4   5   6   7
+			    2   5   7   1   4   3   1   3
+number of transactions k=3
+
+         form an array[k+1][n];   n=7 days
+		 arr[i][0]={0}; //doing 0 transactions gives 0 profit
+		 arr[0][j]={0}; //you are not buying selling, so no profit, just one day
+		 	0  1  2  3  4  5  6  7
+			2  5  7  1  4  3  1  3
+		 0  0  0  0  0  0  0  0  0
+		 1  0  3  5  5  5  5  5  5
+		 2  0  3  5  5  8
+		 3  0
+
+				not doing a tranaction in that day so, arr[i][j-1]
+table[i][j]=max{ 
+                arr[j]-arr[m]+ max(table[i-1][m]) for(m=0 to current j-1)  maximim of doing a transaction on that date + the prevois transaction on the smae day
+
+ex: table[1][3]=    5 or
+               max{
+			        max of
+                    (1-2)+0
+					(1-5)+0
+					(1-7)+0
+
+   table[1][4]=     5
+   				
+					(4-2)+0
+					(4-5)+0
+					4-7+0
+					4-1+0
+
+  table[2][4]=      5
+  					(4-2)+0;
+					(4-5)+3;
+					(4-7)+5;
+					(4-1)+5;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+										JOB SCHEDULING PROBLEM
+given an array of jobs with their start, finish, and profit, fin the maximum profit and which jobs you should do.
+
+		(1,3) (2,5) (4,6) (6,7) (5,8) (7,9)
+input:  
+		 5     6	  5		4	  11     2
+
+---first sort the jobs by their finish time
+
+function max_job_profit(struct x[n],int n){
+	//let sum be an array of size n that will keep track of the max profit of doing until a job at index i if the times do not overlap
+	int sum[n];
+	for(int i=0;i<n;i++)
+	  sum[i]=x[i].profit;
+	int i=1,j=0;
+	while(i<n){
+	  if(x[i].start<x[j].finish)
+	     j++;
+	  if(j==i){
+		j=0;
+	  }
+	  if
+	}(x[i].start>x[j].finish){
+	   sum[i]=max(x[i].profit)+x[j].profit,sum[i];
+		
+	}
+	return max value in the sum array;
+	//to also return the jobs, keep track where the sum is comming from, this way you will keep track of the index in struct x
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function prims_algorith(G)
+Q=V;
+for all v in G{
+	v.d=int_max;
+}
+s.d=0;
+while Q!empty{
+	u=extraxt_min_Q;
+   for all v in adj[u] {
+	if v is in Q and w(u,v)<v.d{
+		v.d=w(u,v);
+		v.p=u;
+	}
+}
+}
+
